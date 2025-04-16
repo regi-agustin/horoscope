@@ -25,14 +25,16 @@ h2 {
   font-weight: 900;
   margin-bottom: 30px;
 }
-
+#container {
+  scroll-margin-top: 10px;
+}
 .card {
   background: white;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 1000px;
+  max-width: 500px;
   min-height: 500px;
   box-sizing: border-box;
   text-align: center;
@@ -147,10 +149,10 @@ h2 {
   margin-top: 5px;
 }
 
-.horoscope-item small,
-.zodiac-item small {
+.horoscope-item small{
   font-size: 0.8rem;
   color: #555;
+  margin-top: 90px;
 }
 .horoscope-item:hover,
 .zodiac-item:hover{

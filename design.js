@@ -61,5 +61,7 @@ allZodiacs.forEach(item => {
   item.style.display = (yearText === yearInput || name === animal) ? 'inline-block' : 'none';
 });
 
-  document.getElementById('container').scrollIntoView({ behavior: 'smooth' });
+document.getElementById('horoscope-container').style.height = '750px';
+document.getElementById('zodiac-container').style.height = '750px';
+document.getElementById('container').scrollIntoView({ behavior: 'smooth' });
 }

@@ -8,18 +8,12 @@ function showHoroscopeAndAnimal() {
     "july", "august", "september", "october", "november", "december"
   ];
 
-  if (!validMonths.includes(monthInput)) {
-    alert("Please enter valid month.");
-    return;
-  }
-
-  if (dateInput < 1 || dateInput > 31) {
-    alert("Please enter a valid date.");
-    return;
-  }
-
-  if (yearInput < 1900 || yearInput > 2100) {
-    alert("Please enter a valid year.");
+  if (
+    !validMonths.includes(monthInput) ||
+    isNaN(dateInput) || dateInput < 1 || dateInput > 31 ||
+    isNaN(yearInput) || yearInput < 1900 || yearInput > 2100
+  ) {
+    alert("Please enter a valid month, date, and year .");
     return;
   }
 
@@ -57,10 +51,14 @@ allHoroscopeItems.forEach((item, index) => {
 
   if (name === horoscope) {
     item.style.display = 'block';
+    item.style.margin = 'auto';
+    item.style.width = '50%';
     fortune.style.display = 'block';
     item.after(fortune);
   } else {
     item.style.display = 'none';
+    item.style.margin = 'auto';
+    item.style.width = '50%';
     fortune.style.display = 'none';
   }
 });
@@ -75,10 +73,14 @@ allZodiacItems.forEach((item, index) => {
 
   if (name === animal) {
     item.style.display = 'block';
+    item.style.margin = 'auto';
+    item.style.width = '50%';
     fortune.style.display = 'block';
     item.after(fortune);
   } else {
     item.style.display = 'none';
+    item.style.margin = 'auto';
+    item.style.width = '50%';
     fortune.style.display = 'none';
   }
 });

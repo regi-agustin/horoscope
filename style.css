@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: 'Georgia', serif;
@@ -7,10 +10,15 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
+  background-image: url("chinesebg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
 }
 
 h1, h2 {
-  color: white;
+  color: rgb(255, 253, 253);
   text-align: center;
   margin: 0;
 }
@@ -18,7 +26,7 @@ h1, h2 {
 h1 {
   font-size: 2rem;
   font-weight: 700;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 h2 {
@@ -30,55 +38,59 @@ h2 {
   scroll-margin-top: 10px;
 }
 .card {
-  background: white;
+  background: #fff8f0;
+  border: 2px solid #b30000;
+  border-radius: 20px;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 500px;
-  min-height: 500px;
-  box-sizing: border-box;
+  width: 320px;
+  height: 400px;
+  margin: 30px auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  font-family: 'Noto Serif SC', serif; 
+  color: #5c0000;
   text-align: center;
   margin-bottom: 100px;
-  margin-top: 20px;
 }
 
 .input-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  text-align: left;
-  height: 110px;
+  margin-bottom: 20px;
+
 }
 
 .input-group label {
+  display: block;
+  margin-bottom: 8px;
   font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 16px;
 }
 
 .input-group input {
+  width: 90%;
   padding: 10px;
-  border: 2px solid #4caf50;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+  border: 1px solid #cc0000;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
 }
 
 .button {
-  padding: 12px 20px;
-  background-color: #c20000c7;
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  color: #5c0000;
   border: none;
-  border-radius: 6px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
-  margin-top: 10px;
-  text-decoration: none;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-top: 30px;
 }
 
-.button:active {
-  background-color: #fdd835;
-  transform: scale(0.95);
+.button:hover {
+  background: linear-gradient(to right, #ffdd33, #ff8800);
+
 }
 
 
@@ -100,10 +112,10 @@ h2 {
 .zodiac-grid {
   display: inline-block;
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  width: 480px;
+  width: 500px;
   box-sizing: border-box;
   text-align: center;
   height: 840px;
@@ -145,15 +157,33 @@ h2 {
 
 .horoscope-item span,
 .zodiac-item span {
+  font-family: 'Noto Serif SC', serif; 
   font-weight: bold;
   display: block;
   margin-top: 5px;
 }
-.horoscope-fortune,
-.zodiac-fortune {
+.horoscope-fortune {
+  font-family: 'Noto Serif SC', serif; 
   display: none;
-  color: red;
   margin-top: 40px;
+  text-align: justify;
+}
+
+.zodiac-fortune {
+  font-family: 'Noto Serif SC', serif; 
+  display: none;
+  margin-top: 40px;
+}
+.traits{
+  font-family: 'Noto Serif SC', serif; 
+  font-weight: bold;
+  margin-top: -20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.trait-title{
+  font-weight: bold;
+  color: #f70909;
 }
 .horoscope-item small{
   font-size: 0.8rem;
@@ -163,7 +193,26 @@ h2 {
 .horoscope-item:hover,
 .zodiac-item:hover{
   opacity: 60%;
+}
+#goTopBtn {
+  background: linear-gradient(to right, #d32f2f, #c62828); 
+  color: gold;
+  border: 2px solid gold;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 170px;
   cursor: pointer;
+  margin-top: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#goTopBtn:hover {
+  background: linear-gradient(to right, #b71c1c, #880e4f);
+  color: #fff;
+  
 }
 @media (max-width: 768px) {
   .grid-container {

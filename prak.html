@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Charm:wght@400;700&family=Expletus+Sans:ital,wght@0,400..700;1,400..700&family=Kumar+One+Outline&display=swap" rel="stylesheet">
+    <title>Horoscope & Zodiac Checker</title>
+    <style>
+        body {
+            font-family: "Charm", sans-serif;
+            background-image: url('orv.jpg');
+            background-size:cover ;
+            background-repeat: no-repeat;
+            color: #1f1f1f;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align:left;
+            margin-left: 60px;
+            margin-top: 50px;
+            color: #f0f0f0;
+        }
+        form {
+            font-size: 20px;
+            text-align: center;
+            height: auto;
+            width: 260px;
+            margin-left: 150px;
+            margin-top: 50px;
+            padding: 20px;
+            background-color:#c3c3c3;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="date"] {
+          margin-top: 15px;
+          padding: 10px;
+          font-size: 16px;
+          border: 2px solid #1f1f1f;
+          border-radius: 15px;
+          width: 150px;
+          background-color: #e1e1e1;
+          color: #333;
+        }
+      
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          background-color: #b0b0b0;
+          border-radius: 50%;
+          padding: 5px;
+        }
+        input[type="date"]:hover {
+          background-color: #b7b7b7;
+        }
+        input[type="date"]:hover:-webkit-calendar-picker-indicator {
+          background-color: #e1e1e1;
+        }
+        button{
+            font: inherit;
+            padding: 10px 20px;
+            font-size: 15px;
+            background-color: #1f1f1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+        background-color: #333; /* Darker background on hover */
+        transform: scale(1.05); /* Slightly enlarge the button */
+        transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+        button:active {
+            transform: scale(0.95); /* Slightly shrink the button on click */
+        }
+      </style>
+</head>
+<body>
+    <h1>Western & Chinese Zodiac Checker</h1>
+    <form onsubmit="return checkZodiac(event)">
+        <label for="birthdate">Enter your birthdate:</label><br>
+        <input type="date" id="birthdate" required><br><br>
+        <button type="submit">CHECK</button>
+        <p id="zodiacResult"></p>
+    </form>
+
+    <script>
+        function checkZodiac(event) {
+            event.preventDefault();
+
+            let birthdate = document.getElementById("birthdate").value;
+            let zodiacResult = document.getElementById("zodiacResult");
+            
+            if (birthdate) {
+                let date = new Date(birthdate);
+                let month = date.getMonth() + 1;
+                let day = date.getDate();
+                let year = date.getFullYear();
+
+                let zodiac = "";
+
+                if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) {
+                    zodiac = "Aries";
+                } else if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) {
+                    zodiac = "Taurus";
+                } else if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) {
+                    zodiac = "Gemini";
+                } else if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) {
+                    zodiac = "Cancer";
+                } else if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) {
+                    zodiac = "Leo";
+                } else if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) {
+                    zodiac = "Virgo";
+                } else if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) {
+                    zodiac = "Libra";
+                } else if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) {
+                    zodiac = "Scorpio";
+                } else if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) {
+                    zodiac = "Sagittarius";
+                } else if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) {
+                    zodiac = "Capricorn";
+                } else if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) {
+                    zodiac = "Aquarius";
+                } else if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) {
+                    zodiac = "Pisces";
+                }
+
+                const animalZodiac = [
+                    "Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox",
+                    "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"
+                ];
+                let animal = animalZodiac[year % 12];
+
+                zodiacResult.innerHTML = `
+                Zodiac sign is: <strong>${zodiac}</strong> <br>
+                Chinese zodiac animal is: <strong>${animal}</strong>.`;
+            } else {
+                zodiacResult.innerHTML = "Please enter a valid birthdate.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -89,4 +89,11 @@ allZodiacItems.forEach((item, index) => {
   document.getElementById('horoscope-container').style.height = '750px';
   document.getElementById('zodiac-container').style.height = '750px';   
   document.getElementById('container').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('fireworks').style.display = 'block';
+  startFireworks();
 }
+
+
+
+
+

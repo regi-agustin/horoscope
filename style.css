@@ -189,6 +189,11 @@ h2 {
   display: none;
   margin-top: 40px;
 }
+.zodiac-fortune p{
+  font-family: 'Noto Serif SC', serif; 
+  margin-top: 40px;
+  text-align: justify;
+}
 .traits{
   font-family: 'Noto Serif SC', serif; 
   font-weight: bold;

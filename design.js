@@ -33,10 +33,8 @@ function showHoroscopeAndAnimal() {
   else if ((monthInput === "february" && dateInput >= 19) || (monthInput === "march" && dateInput <= 20)) horoscope = "pisces";
 
   // Chinese Zodiac logic
-  const animals = [
-    "rat", "ox", "tiger", "rabbit", "dragon", "snake",
-    "horse", "goat", "monkey", "rooster", "dog", "pig"
-  ];
+  const animals = ["rat", "ox", "tiger", "rabbit", "dragon", "snake",
+    "horse", "goat", "monkey", "rooster", "dog", "pig"];
   const baseYear = 1900;
   const animalIndex = (yearInput - baseYear) % 12;
   const animal = animals[animalIndex];

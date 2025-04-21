@@ -8,12 +8,19 @@ function showHoroscopeAndAnimal() {
     "july", "august", "september", "october", "november", "december"
   ];
 
+  // Leap year check
+  function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
+
+  // Validate input including leap year rule for Feb 29
   if (
     !validMonths.includes(monthInput) ||
     isNaN(dateInput) || dateInput < 1 || dateInput > 31 ||
-    isNaN(yearInput) || yearInput < 1900 || yearInput > 2100
+    isNaN(yearInput) || yearInput < 1900 || yearInput > 2100 ||
+    (monthInput === "february" && dateInput === 29 && !isLeapYear(yearInput))
   ) {
-    alert("Please enter a valid month, date, and year .");
+    alert("Please enter a valid month, date, and year.");
     return;
   }
 
@@ -40,48 +47,48 @@ function showHoroscopeAndAnimal() {
   const animal = animals[animalIndex];
 
   // Show correct horoscope
-const allHoroscopeItems = document.querySelectorAll('.horoscope-item');
-const allHoroscopeFortunes = document.querySelectorAll('.horoscope-fortune');
+  const allHoroscopeItems = document.querySelectorAll('.horoscope-item');
+  const allHoroscopeFortunes = document.querySelectorAll('.horoscope-fortune');
 
-allHoroscopeItems.forEach((item, index) => {
-  const name = item.querySelector('span').textContent.trim().toLowerCase();
-  const fortune = allHoroscopeFortunes[index];
+  allHoroscopeItems.forEach((item, index) => {
+    const name = item.querySelector('span').textContent.trim().toLowerCase();
+    const fortune = allHoroscopeFortunes[index];
 
-  if (name === horoscope) {
-    item.style.display = 'block';
-    item.style.margin = 'auto';
-    item.style.width = '50%';
-    fortune.style.display = 'block';
-    item.after(fortune);
-  } else {
-    item.style.display = 'none';
-    item.style.margin = 'auto';
-    item.style.width = '50%';
-    fortune.style.display = 'none';
-  }
-});
+    if (name === horoscope) {
+      item.style.display = 'block';
+      item.style.margin = 'auto';
+      item.style.width = '50%';
+      fortune.style.display = 'block';
+      item.after(fortune);
+    } else {
+      item.style.display = 'none';
+      item.style.margin = 'auto';
+      item.style.width = '50%';
+      fortune.style.display = 'none';
+    }
+  });
 
-// Show correct zodiac
-const allZodiacItems = document.querySelectorAll('.zodiac-item');
-const allZodiacFortunes = document.querySelectorAll('.zodiac-fortune');
+  // Show correct zodiac
+  const allZodiacItems = document.querySelectorAll('.zodiac-item');
+  const allZodiacFortunes = document.querySelectorAll('.zodiac-fortune');
 
-allZodiacItems.forEach((item, index) => {
-  const name = item.querySelector('span').textContent.trim().toLowerCase();
-  const fortune = allZodiacFortunes[index];
+  allZodiacItems.forEach((item, index) => {
+    const name = item.querySelector('span').textContent.trim().toLowerCase();
+    const fortune = allZodiacFortunes[index];
 
-  if (name === animal) {
-    item.style.display = 'block';
-    item.style.margin = 'auto';
-    item.style.width = '50%';
-    fortune.style.display = 'block';
-    item.after(fortune);
-  } else {
-    item.style.display = 'none';
-    item.style.margin = 'auto';
-    item.style.width = '50%';
-    fortune.style.display = 'none';
-  }
-});
+    if (name === animal) {
+      item.style.display = 'block';
+      item.style.margin = 'auto';
+      item.style.width = '50%';
+      fortune.style.display = 'block';
+      item.after(fortune);
+    } else {
+      item.style.display = 'none';
+      item.style.margin = 'auto';
+      item.style.width = '50%';
+      fortune.style.display = 'none';
+    }
+  });
 
   // Optional scroll behavior
   document.getElementById('horoscope-container').style.height = '750px';
@@ -90,8 +97,3 @@ allZodiacItems.forEach((item, index) => {
   document.getElementById('fireworks').style.display = 'block';
   startFireworks();
 }
-
-
-
-
-
